@@ -206,6 +206,7 @@ Dotenv exposes two functions:
 
 * `config`
 * `parse`
+* `safe`
 
 ### Config
 
@@ -294,6 +295,47 @@ const buf = Buffer.from('hello world')
 const opt = { debug: true }
 const config = dotenv.parse(buf, opt)
 // expect a debug message because the buffer is not in KEY=VAL form
+```
+
+### Safe
+
+`safe`, is an extension of `config`, which will read your `.env` file, parse the contents, assign it to
+[`process.env`](https://nodejs.org/docs/latest/api/process.html#process_process_env), while also checking your `.env.sample` file for required keys,
+and return an Object with a `parsed` key containing the loaded content or an `error` key if it failed.
+
+```js
+const result = dotenv.safe()
+
+if (result.error) {
+  throw result.error
+}
+
+console.log(result.parsed)
+```
+
+You can additionally, pass options to `safe`.
+
+#### Options
+
+In addition to the options you can pass to `config`, you can also pass the following options to `safe`.
+##### Example
+
+Default: `path.resolve(process.cwd(), '.env.example')`
+
+Specify a custom path if your file containing sample environment variables is located elsewhere.
+
+```js
+require('dotenv').safe({ example: '/custom/path/to/.env' })
+```
+
+##### Allow Empty Values
+
+Default: `false`
+
+Specify if a key can have empty values. They key, if in `.env.example`, will still be required, but empty values will be permitted.
+
+```js
+require('dotenv').safe({ allowEmptyValues: true })
 ```
 
 ## FAQ
