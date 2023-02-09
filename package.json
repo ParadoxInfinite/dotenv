@@ -1,6 +1,6 @@
 {
   "name": "@paradoxinfinite/dotenv",
-  "version": "16.0.3",
+  "version": "1.0.0",
   "description": "Loads environment variables from .env file, with dotenv-safe features too.",
   "main": "lib/main.js",
   "types": "lib/main.d.ts",

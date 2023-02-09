@@ -1,5 +1,10 @@
 <div align="center">
 
+## NOTE: This is a fork from the original [dotenv](https://www.npmjs.com/package/dotenv) with additional feature added on from [dotenv-safe](https://www.npmjs.com/package/dotenv-safe).
+
+## There is an [active pull request](https://github.com/motdotla/dotenv/pull/714) to get the feature integrated into dotenv natively, and when that happens, this project will be abandoned, so use at your own risk.
+
+
 <p>
   <sup>
     <a href="https://github.com/sponsors/motdotla">Dotenv is supported by the community.</a>
